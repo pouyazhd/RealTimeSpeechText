@@ -9,7 +9,7 @@ class RecorderConfigs:
     sample_format = pyaudio.paInt16  # 16 bit data format
     channels: int = 1  # single channel data
     fs: int = 44100  # sampling frequency
-    duration: int = 10  # sampling seconds
+    duration: int = 5  # sampling seconds
 
 
 class Recorder:
@@ -28,21 +28,28 @@ class Recorder:
 
     @property
     def capture(self, time: int = 10) -> list:
-        stream = self.stream()
+        stream = self.stream
         frames = []  # Initialize array to store frames
         # Store data in chunks for 3 seconds
         for i in range(0, int(self.configs.fs / self.configs.chunk * self.configs.duration)):
-            data = self.stream.read(self.configs.chunk)
+            data = stream.read(self.configs.chunk)
             frames.append(data)
 
         stream.stop_stream()
         stream.close()
 
+        wf = wave.open("RecordedAudio.wav", 'wb')
+        wf.setnchannels(self.configs.channels)
+        wf.setsampwidth(16)
+        wf.setframerate(self.configs.fs)
+        wf.writeframes(b''.join(frames))
+        wf.close()
+
         return frames
 
-    def save_audio(self, frames: list, filename: str)->None:
+    def save_audio(self, frames: list, filename: str) -> None:
         """
-        Save audio files in *.wav fromat
+        Save audio files in *.wav format
         :param frames:
         :param filename:
         :return:
