@@ -1,5 +1,7 @@
 Tasks:
-    Record audio
-    Recognize audio and convert to txt
-    Sentiment analyse texts
+    [DONE] Record audio
+    [DONE]Recognize audio and convert to txt
+    [DOING]Sentiment analyse texts
+    Get audio from recorded audio
+    Dynamic configuration
     display color

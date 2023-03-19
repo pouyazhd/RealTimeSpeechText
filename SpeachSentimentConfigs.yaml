@@ -1,0 +1,5 @@
+SpeechTextConfigs:
+  capture_duration: 3 # seconds
+  time_out: 10 # seconds
+  text_to_speech_engine: google
+  interval: 1 # min
