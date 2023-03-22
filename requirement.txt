@@ -1,2 +1,4 @@
 SpeechRecognition
 PyAudio
+text2emotion
+emoji==1.6.0

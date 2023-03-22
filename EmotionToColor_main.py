@@ -1,5 +1,6 @@
 import src.RecordAudio as rec
 import src.SpeechText as sp
+import src.EmotionDetector as ed
 import yaml
 import logging
 
@@ -34,7 +35,8 @@ def main():
     # recorder.save_audio(audio_frames, "recorded.wav")
     # recognizer = sp.SpeechRecognizer()
     # recognizer.speech_text()
-
+    text = "I'm so fuckin angry"
+    print(ed.emotion_detector(text))
 
 if __name__ == '__main__':
     main()

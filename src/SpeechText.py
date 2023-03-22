@@ -11,9 +11,9 @@ class SpeechRecognizer:
                                                   timeout=10,
                                                   phrase_time_limit=3)
         text = self.recognizer_object.recognize_google(audio,
-                                                       language="fa-IR",
+                                                       language="en-US",  # fa-IR",
                                                        )
-        print(type(text))
+        print(text)
 
 # obtain audio from the microphone
 # r = sr.Recognizer()
